@@ -10,6 +10,7 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_route53_record" "dns" {
+  for_each = var.components
   zone_id = "Z04759742TOEKPTLQKQGL"
   name    = "${each.key}-dev"
   type    = "A"
